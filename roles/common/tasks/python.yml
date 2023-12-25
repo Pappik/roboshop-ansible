@@ -15,4 +15,4 @@
     chdir: /app
 
 - name: app prereq
-  ansible.builtin.include_taks: "systemd.yml"
+  ansible.builtin.include_tasks: "systemd.yml"
