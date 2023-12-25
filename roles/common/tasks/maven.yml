@@ -1,0 +1,23 @@
+- name: Install maven
+  ansible.builtin.yum:
+    name: maven
+    state: installed
+
+- name: app prereq
+  ansible.builtin.include_tasks: "appreq.yml"
+
+- name: Download dependencies and build application
+  ansible.builtin.shell: mvn clean package; mv target/shipping-1.0.jar shipping.jar
+  args:
+    chdir: /app
+
+- name: app prereq
+  ansible.builtin.include_tasks: "systemd.yml"
+
+- name: Install mysql client
+  ansible.builtin.yum:
+    name:  mysql
+    state: installed
+
+- name: Load schema
+  ansible.builtin.shell: mysql -h mysql-dev.pappik.online -uroot -pRoboShop@1 < /app/schema/{{component}}.sql
