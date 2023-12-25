@@ -4,7 +4,6 @@
 - name: enable redis
   ansible.builtin.shell: dnf module enable redis:remi-6.2 -y
 
-
 - name: Install redis
   ansible.builtin.yum:
     name: redis
@@ -12,9 +11,8 @@
 
 - name: Replace listening address
   ansible.builtin.replace:
-    path:
-      - /etc/redis.conf
-      - /etc/redis/redis.conf
+    path: /etc/redis.conf
+#      - /etc/redis/redis.conf
     regexp: '127.0.0.1'
     replace: '0.0.0.0'
 
