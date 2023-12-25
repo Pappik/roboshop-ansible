@@ -50,6 +50,11 @@
     enabled: true
     daemon_reload: yes
 
+- name: copy mongo repo files
+  ansible.builtin.template:
+    src: mongo.repo
+    dest: /etc/yum.repos.d/mongo.repo
+
 - name: Install mongo client
   ansible.builtin.yum:
     name: mongodb-org-shell
