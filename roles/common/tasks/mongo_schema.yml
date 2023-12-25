@@ -2,11 +2,15 @@
   ansible.builtin.template:
     src: mongo.repo
     dest: /etc/yum.repos.d/mongo.repo
+  when: schema_load
 
 - name: Install mongo client
   ansible.builtin.yum:
     name: mongodb-org-shell
     state: installed
+  when: schema_load
+
 
 - name: load schema
   ansible.builtin.shell: mongo --host mongodb-dev.pappik.online </app/schema/{{component}}.js
+  when: schema_load
