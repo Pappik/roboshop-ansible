@@ -49,3 +49,11 @@
     name: catalogue
     enabled: true
     daemon_reload: yes
+
+- name: Install mongo client
+  ansible.builtin.yum:
+    name: mongodb-org-shell
+    state: installed
+
+- name: load schema
+  ansible.builtin.shell: mongo --host mongodb-dev.pappik.online </app/schema/catalogue.js
