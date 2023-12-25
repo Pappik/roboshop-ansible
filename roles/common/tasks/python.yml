@@ -7,7 +7,7 @@
     state: installed
 
 - name: app prereq
-  ansible.builtin.include_taks: "appreq.yml"
+  ansible.builtin.include_tasks: "appreq.yml"
 
 - name: Download dependencies
   ansible.builtin.shell: pip3.6 install -r requirements.txt
