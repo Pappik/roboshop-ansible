@@ -11,7 +11,7 @@
   args:
     chdir: /app
 
-- name: app prereq
+- name: systemd service
   ansible.builtin.include_tasks: "systemd.yml"
 
 - name: Install mysql client
