@@ -14,9 +14,15 @@
     path: /app
     state: latest
 
-- name: App prereq task
+- name: Download DocDb CA File
+  ansible.builtin.get_url:
+    url: https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem
+    dest: /app/rds-combined-ca-bundle.pem
+  when: schema_load
+
+- name: Systemd service
   ansible.builtin.include_tasks: "systemd.yml"
 
-- name: App prereq task
+- name: Schema Load
   ansible.builtin.include_tasks: "mongo_schema.yml"
 
