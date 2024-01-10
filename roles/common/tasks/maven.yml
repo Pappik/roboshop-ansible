@@ -16,8 +16,16 @@
 
 - name: Install mysql client
   ansible.builtin.yum:
-    name:  mysql
+    name:
+    - mysql
+    - python3-PyMySQL
     state: installed
 
 - name: Load schema
-  ansible.builtin.shell: mysql -h mysql-dev.pappik.online -uroot -pRoboShop@1 < /app/schema/{{component}}.sql
+  community.mysql.mysql_db:
+    state: import
+    name: all
+    target: /app/schema/{{component}}.sql
+    login_host: {{ lookup('aws_ssm', "{{env}}.rds.ENDPOINT", region='us-east-1' ) }}
+    login_user: {{ lookup('aws_ssm', "{{env}}.rds.DB_ADMIN_USER", region='us-east-1' ) }}
+    login_password: {{ lookup('aws_ssm', "{{env}}.rds.DB_ADMIN_PASS", region='us-east-1' ) }}
