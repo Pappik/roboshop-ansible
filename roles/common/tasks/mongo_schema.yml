@@ -16,4 +16,4 @@
 #  when: schema_load
 
 - name: Load Schema
-  ansible.builtin.shell: mongo --ssl --host dev-docdb-cluster.cluster-ca9sdnry65dv.us-east-1.docdb.amazonaws.com:27017 --sslCAFile /app/rds-combined-ca-bundle.pem --username admin1 --password RoboShop123
+  ansible.builtin.shell: mongo --ssl --host dev-docdb-cluster.cluster-ca9sdnry65dv.us-east-1.docdb.amazonaws.com:27017 --tlsCAFile /app/rds-combined-ca-bundle.pem --username admin1 --password RoboShop123
