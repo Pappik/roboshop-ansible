@@ -26,6 +26,6 @@
     state: import
     name: all
     target: /app/schema/{{component}}.sql
-    login_host: "{{ lookup('aws_ssm', "{{env}}.rds.ENDPOINT", region='us-east-1' ) }}"
-    login_user: "{{ lookup('aws_ssm', "{{env}}.rds.DB_ADMIN_USER", region='us-east-1' ) }}"
-    login_password: "{{ lookup('aws_ssm', "{{env}}.rds.DB_ADMIN_PASS", region='us-east-1' ) }}"
+    login_host: "dev-rds.cluster-ca9sdnry65dv.us-east-1.rds.amazonaws.com"
+    login_user: "admin1"
+    login_password: "RoboShop123"
