@@ -5,6 +5,7 @@
   vars:
     labels:
       - { tag : "env", label: "environment" }
+      - { tag : "name", label: {{component}} }
 
 - name: Restart prometheus
   ansible.builtin.systemd:
