@@ -86,7 +86,7 @@
             "uid": "cdfafa50-71ea-49e4-ad69-ffef1e36c415"
           },
           "editorMode": "code",
-          "expr": "100 - (avg by (name) (floor(rate(node_cpu_seconds_total{ mode= \"idle\", name=\"dev-user\"}[1m]) * 100)))",
+          "expr": "100 - (avg by (name) (floor(rate(node_cpu_seconds_total{ mode= \"idle\", name=\"{{env.dev}}-{{component}}\"}[1m]) * 100)))",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -181,7 +181,7 @@
             "uid": "cdfafa50-71ea-49e4-ad69-ffef1e36c415"
           },
           "editorMode": "code",
-          "expr": "100 - floor(rate(node_cpu_seconds_total{ mode= \"idle\", name= \"dev-user\"}[1m]) * 100)",
+          "expr": "100 - floor(rate(node_cpu_seconds_total{ mode= \"idle\", name= \"{{env.dev}}-{{component}}\"}[1m]) * 100)",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -204,5 +204,5 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "frontend"
+  "title": "{{component}}"
 }
