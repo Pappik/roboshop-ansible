@@ -6,7 +6,7 @@
 
 
 - name: Copy Prometheus Alerts conf to prometheus server
-  ansible.builtin.shell: sshpass -p "DevOps321" scp /tmp/alert.yml root@172.31.37.7:/opt/prometheus/alerts/{{component}}.yml
+  ansible.builtin.shell: sshpass -p DevOps321 scp /tmp/alert.yml root@172.31.37.7:/opt/prometheus/alerts/{{component}}.yml
 
 - name: Setup Prometheus Alerts Config
   ansible.builtin.template:
