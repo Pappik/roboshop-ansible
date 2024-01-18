@@ -15,7 +15,7 @@ alerting:
 rule_files:
   - "record-rules.yml"
   - "alert-rules.yml"
-  - "alert/*.yml"
+  - "alerts/*.yml"
 
 
 # A scrape configuration containing exactly one endpoint to scrape:
