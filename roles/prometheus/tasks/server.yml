@@ -22,6 +22,16 @@
     name: prometheus
     state: restarted
 
+- name: Copy Alertmanager Config
+  ansible.builtin.template:
+    src: alertmanager.yml
+    dest: /opt/alertmanager/alertmanager.yml
+
+- name: Restart alertmanager
+  ansible.builtin.systemd:
+    name: alertmanager
+    state: restarted
+
 ##    Grafana Dashboard
 #- name: Make Template
 #  ansible.builtin.template:
