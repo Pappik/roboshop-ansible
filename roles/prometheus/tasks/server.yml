@@ -22,6 +22,9 @@
     name: prometheus
     state: restarted
 
+- name: Check prometheus server started or not
+  ansible.bultin.shell: netstat -lntp | grep 9090
+
 - name: Copy Alertmanager Config
   ansible.builtin.template:
     src: alertmanager.yml
