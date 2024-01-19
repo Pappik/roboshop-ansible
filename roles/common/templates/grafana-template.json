@@ -86,7 +86,7 @@
             "uid": "cdfafa50-71ea-49e4-ad69-ffef1e36c415"
           },
           "editorMode": "code",
-          "expr": "100 - (avg by (name) (floor(rate(node_cpu_seconds_total{ mode= \"idle\", name=\"{{dev}}-{{component}}\"}[1m]) * 100)))",
+          "expr": "100 - (avg by (name) (floor(rate(node_cpu_seconds_total{ mode= \"idle\", name=\"{{env}}-{{component}}\"}[1m]) * 100)))",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -384,7 +384,6 @@
   "timepicker": {},
   "timezone": "",
   "title": "{{component}}",
-  "uid": "eec6a904-1bec-4db3-bfab-a5549b5c84a8",
   "version": 4,
   "weekStart": ""
 }
