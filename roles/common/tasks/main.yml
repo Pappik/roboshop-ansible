@@ -4,6 +4,10 @@
 - name: Install Prometheus Node Exporter
   ansible.builtin.shell: labauto prometheus-node-exporter
 
+- name: Setup Prometheus Alerts Config
+  ansible.builtin.template:
+    src: alert.yml
+    dest: /tmp/alert.yml
 
 - name: Copy Prometheus Alerts conf to prometheus server
   ansible.builtin.shell: sshpass -p DevOps321 scp /tmp/alert.yml centos@172.31.37.7:/opt/prometheus/alerts/{{component}}.yml
@@ -11,10 +15,6 @@
 - name: Reload Prometheus
   ansible.builtin.shell: curl -s -XPOST http://172.31.37.7:9090/-/reload
 
-- name: Setup Prometheus Alerts Config
-  ansible.builtin.template:
-    src: alert.yml
-    dest: /tmp/alert.yml
 
 #    Grafana Dashboard
 - name: Make Template
