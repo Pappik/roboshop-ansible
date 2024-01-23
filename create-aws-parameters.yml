@@ -31,8 +31,9 @@
 
         - { name: "dev.shipping.CART_ENDPOINT", value: "cart-dev.pappik.online:8080" }
         - { name: "dev.shipping.DB_HOST", value: "mysql-dev.pappik.online" }
-          
-#   #Production 
+
+
+        #   #Production
         - { name: "prod.cart.REDIS_HOST", value: "redis-prod.pappik.online" }
         - { name: "prod.cart.CATALOGUE_HOST", value: "catalogue-prod.pappik.online" }
         - { name: "prod.catalogue.MONGO", value: "true" }
@@ -58,6 +59,7 @@
         - { name: "prod.shipping.DB_HOST", value: "mysql-prod.pappik.online" }
 
 
+
     ## Passwords should never be held in these repos, should be created manually but for the lab purpose we are creating them here
     - name: create secrets
       community.aws.aws_ssm_parameter_store:
@@ -77,8 +79,9 @@
         - { name: "dev.rabbitmq.USER", value: "roboshop" }
         - { name: "dev.rabbitmq.PASS", value: "roboshop1234" }
         - { name: "grafana_api_key", value: "glsa_MsveNoLJerX0Af8DW8yovQMZnYZfqGBB_95e54147" }
-          
-    #PRDOUCTION
+
+
+        #PRDOUCTION
         - { name: "prod.payment.AMQP_PASS", value: "roboshop123" }
         - { name: "prod.rabbitmq.AMQP_PASS", value: "roboshop123" }
         - { name: "prod.mysql.DB_ADMIN_USER", value: "root" }
