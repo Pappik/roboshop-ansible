@@ -7,8 +7,8 @@ groups:
         labels:
           severity: Critical
         annotations: {% raw %}
-          summary: "Service Down on - [{{ $labels.name}}]"
-          description: "Service - [{{ $labels.exported_name}}] is down"
+          summary: "Service Down on - [{{ $labels.name }}]"
+          description: "Service - [{{ $labels.exported_name }}] is down"
 {% endraw %}
 {% if monitor_ssh_service %}
       - alert: SSHServiceDown
@@ -16,8 +16,8 @@ groups:
         labels:
           severity: Critical
         annotations: { % raw % }
-          summary: "Service Down on - [{{ $labels.name}}]"
-          description: "Service - [{{ $labels.exported_name}}] is down"
+          summary: "Service Down on - [{{ $labels.name }}]"
+          description: "Service - [{{ $labels.exported_name }}] is down"
 {% endraw %}
 {% endif %}
 
