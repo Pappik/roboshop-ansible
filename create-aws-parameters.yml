@@ -31,6 +31,31 @@
 
         - { name: "dev.shipping.CART_ENDPOINT", value: "cart-dev.pappik.online:8080" }
         - { name: "dev.shipping.DB_HOST", value: "mysql-dev.pappik.online" }
+          
+#   #Production 
+        - { name: "prod.cart.REDIS_HOST", value: "redis-prod.pappik.online" }
+        - { name: "prod.cart.CATALOGUE_HOST", value: "catalogue-prod.pappik.online" }
+        - { name: "prod.catalogue.MONGO", value: "true" }
+          #        - {name: "prod.catalogue.MONGO_URL", value: "mongodb://mongodb-prod.pappik.online:27017/catalogue" }
+        - { name: "prod.catalogue.MONGO_URL", value: "mongodb://username:password@mongodb:27017/catalogue?tls=true&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false" }
+        - { name: "prod.frontend.CATALOGUE_URL", value: "http://catalogue-prod.pappik.online:80/" }
+        - { name: "prod.frontend.USER_URL", value: "http://user-prod.pappik.online:80/" }
+        - { name: "prod.frontend.CART_URL", value: "http://cart-prod.pappik.online:80/" }
+        - { name: "prod.frontend.SHIPPING_URL", value: "http://shipping-prod.pappik.online:80/" }
+        - { name: "prod.frontend.PAYMENT_URL", value: "http://payment-prod.pappik.online:80/" }
+        - { name: "prod.payment.CART_HOST", value: "cart-prod.pappik.online" }
+        - { name: "prod.payment.USER_HOST", value: "user-prod.pappik.online" }
+        - { name: "prod.payment.CART_PORT", value: "80" }
+        - { name: "prod.payment.USER_PORT", value: "80" }
+        - { name: "prod.payment.AMQP_HOST", value: "rabbitmq-prod.pappik.online" }
+        - { name: "prod.payment.AMQP_USER", value: "roboshop" }
+        - { name: "prod.payment.CART_ENDPOINT", value: "cart-prod.pappik.online:80" }
+        - { name: "prod.payment.DB_HOST", value: "mysql-prod.pappik.online" }
+        - { name: "prod.user.MONGO", value: "true" }
+        - { name: "prod.user.MONGO_URL", value: "mongodb://mongodb-prod.pappik.online:27017/users" }
+
+        - { name: "prod.shipping.CART_ENDPOINT", value: "cart-prod.pappik.online:8080" }
+        - { name: "prod.shipping.DB_HOST", value: "mysql-prod.pappik.online" }
 
 
     ## Passwords should never be held in these repos, should be created manually but for the lab purpose we are creating them here
@@ -51,4 +76,17 @@
         - {name: "dev.rds.DB_ADMIN_PASS", value: "RoboShop123" }
         - { name: "dev.rabbitmq.USER", value: "roboshop" }
         - { name: "dev.rabbitmq.PASS", value: "roboshop1234" }
+        - { name: "grafana_api_key", value: "glsa_MsveNoLJerX0Af8DW8yovQMZnYZfqGBB_95e54147" }
+          
+    #PRDOUCTION
+        - { name: "prod.payment.AMQP_PASS", value: "roboshop123" }
+        - { name: "prod.rabbitmq.AMQP_PASS", value: "roboshop123" }
+        - { name: "prod.mysql.DB_ADMIN_USER", value: "root" }
+        - { name: "prod.mysql.DB_ADMIN_PASS", value: "RoboShop@1" }
+        - { name: "prod.docdb.DB_ADMIN_USER", value: "admin1" }
+        - { name: "prod.docdb.DB_ADMIN_PASS", value: "RoboShop123" }
+        - { name: "prod.rds.DB_ADMIN_USER", value: "admin1" }
+        - { name: "prod.rds.DB_ADMIN_PASS", value: "RoboShop123" }
+        - { name: "prod.rabbitmq.USER", value: "roboshop" }
+        - { name: "prod.rabbitmq.PASS", value: "roboshop1234" }
         - { name: "grafana_api_key", value: "glsa_MsveNoLJerX0Af8DW8yovQMZnYZfqGBB_95e54147" }
