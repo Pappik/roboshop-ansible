@@ -21,6 +21,17 @@
     - python3-PyMySQL
     state: installed
 
+- name: Collect info about databases including empty and excluding their sizes
+  community.mysql.mysql_info:
+    filter:
+      - databases
+    exclude_fields: db_size
+    return_empty_dbs: false
+    login_host: "dev-rds.cluster-ca9sdnry65dv.us-east-1.rds.amazonaws.com"
+    login_user: "admin1"
+    login_password: "RoboShop123"
+  register: out
+
 - name: Load schema
   community.mysql.mysql_db:
     state: import
@@ -29,3 +40,4 @@
     login_host: "dev-rds.cluster-ca9sdnry65dv.us-east-1.rds.amazonaws.com"
     login_user: "admin1"
     login_password: "RoboShop123"
+  when: "'cities' not in out.databases"
