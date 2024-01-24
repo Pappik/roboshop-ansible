@@ -4,10 +4,10 @@
 - name: Install Prometheus Node Exporter
   ansible.builtin.shell: labauto prometheus-node-exporter
 
-#- name: Setup Prometheus Alerts Config
-#  ansible.builtin.template:
-#    src: alert.yml
-#    dest: /tmp/alert.yml
+- name: Setup Prometheus Alerts Config
+  ansible.builtin.template:
+    src: alert.yml
+    dest: /tmp/alert.yml
 
 - name: Copy Prometheus Alerts conf to prometheus server
   ansible.builtin.shell: sshpass -p DevOps321 scp /tmp/alert.yml root@172.31.37.7:/opt/prometheus/alerts/{{component}}.yml
